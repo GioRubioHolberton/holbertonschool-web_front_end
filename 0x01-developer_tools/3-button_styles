@@ -90,10 +90,6 @@ html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-user agent stylesheet
-html {
-    color: -internal-root-color;
-}
 *, *::before, *::after {
     box-sizing: border-box;
 }
