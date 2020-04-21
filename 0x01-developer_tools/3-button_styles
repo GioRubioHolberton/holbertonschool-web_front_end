@@ -44,7 +44,6 @@ a:-webkit-any-link {
 .text-white {
     color: #fff !important;
 }
-
 body {
     margin: 0;
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -90,6 +89,10 @@ html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
 }
 *, *::before, *::after {
     box-sizing: border-box;
