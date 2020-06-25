@@ -630,7 +630,7 @@
       height: auto;
     }
 
-    .post-content {
+    .post-content p:first-child {
       font-size: var(--font-size-x-large);
     }
 
