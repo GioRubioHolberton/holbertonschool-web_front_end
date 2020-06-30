@@ -21,7 +21,7 @@
         function setCookies() {
             document.cookie = "firstname=" + document.getElementById("firstname").value
             document.cookie = "email=" + document.getElementById("email").value
-            let date = new Date(864000e3);
+            let date = new Date(Date.now() + 86400e3);
             date = date.toUTCString();
             document.cookie = "expire=" + date;
         }
