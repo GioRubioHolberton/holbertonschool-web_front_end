@@ -1,0 +1,44 @@
+@import '103-sort_list.scss';
+
+$sort-list: a b c d e f g h i j k l m n o p q r s t u v w x y z !default;
+
+@function compare($op1, $op2, $order) {
+    @for $it from 1 through min(str-length($op1), str-length($op2)) {
+        $re1: str-slice($op1, $it, $it);
+        $re2: str-slice($op2, $it, $it);
+
+        @if $re1 and $re2 and index($order, $re1) != index($order, $re2) {
+            @return index($order, $re1) < index($order, $re2);
+        }
+    }
+    @return str-length($re1) < str-length($re2);
+}
+
+
+@function change($list_to_sort, $i1, $i2) {
+    @if $i1 > length($list_to_sort) or $i2 > length($list_to_sort) {
+        @return $list_to_sort;
+    }
+    $temp: nth($list_to_sort, $i1);
+    $list_to_sort: set-nth($list_to_sort, $i1, nth($list_to_sort, $i2));
+    $list_to_sort: set-nth($list_to_sort, $i2, $temp);
+    @return $list_to_sort;
+}
+
+@function sort($list_to_sort, $order: $sort-list) {
+    @for $i from 1 through length($list_to_sort) {
+        @for $j from $i * -1 through -1 {
+            $j: abs($j);
+            @if $j > 1 and compare(nth($list_to_sort, $j),
+             nth($list_to_sort, $j - 1), $order) {
+                $list_to_sort: change($list_to_sort, $j, $j - 1);
+            }
+        }
+    }
+    @debug $list_to_sort;
+
+
+    @return $list_to_sort;
+}
+
+$sort: sort($list_to_sort);
